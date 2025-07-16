@@ -1,76 +1,202 @@
-.hero-section {
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), 
-                url('../images/home1.jpg') no-repeat center center;
-    background-size: cover;
-    position: relative;
-  }
-  
-  .navbar .nav-link {
+html {
+  scroll-behavior: smooth;
+}
+
+.navbar-brand {
     color: white !important;
-    margin: 0 10px;
-  }
-  
-  .navbar .nav-link.active {
-    border-bottom: 2px solid white;
-  }
-  
-  .hero-text {
-    margin-top: 80px;
-    z-index: 2;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+.nav-link:hover {
+    color: #ccc !important;
+}
+
+.nav-link.active {
+    color: rgb(243, 176, 69) !important;
+}
+
+/* Mobile navbar right alignment */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        text-align: right;
+    }
+    
+    .navbar-nav {
+        align-items: flex-end;
+        width: 100%;
+    }
+    
+    .nav-item {
+        text-align: right;
+        width: 100%;
+    }
+    
+    .nav-link {
+        text-align: right;
+        padding-right: 0 !important;
+    }
+}
+
+.about-section {
+    background-color: #fff;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
     position: relative;
+    z-index: 2;
+}
+
+.about-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2rem;
+}
+
+.about-image {
+    width: 35%;
+    margin-left: 8%;
+}
+
+.right-text {
+    margin-left: 12%;
+    text-align: start;
+    width: 100%;
+}
+
+.right-text h1 {
+    color: rgba(47, 40, 22, 0.981);
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-image {
+        width: 80%;
+        margin-left: 0;
+        margin-bottom: 2rem;
+    }
+
+    .right-text {
+        margin-left: 0;
+        text-align: center;
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .about-text {
+        margin-top: 5%;
+    }
+
+    .right-text h1 {
+        font-size: 2rem;
+    }
+
+    .about-text p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+}
+
+/* Tablet responsive styles */
+@media (max-width: 992px) and (min-width: 769px) {
+    .about-image {
+        width: 40%;
+        margin-left: 5%;
+    }
+
+    .right-text {
+        margin-left: 8%;
+    }
+}
+
+.hero-section {
+  min-height: auto;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), 
+              url('../images/home1.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  justify-content: center;
+  padding:1rem; /* provide padding for top/bottom */
+}
+
+/* Add responsive overrides */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: auto;
+    padding-bottom: 5rem; /* enough gap to separate sections */
   }
-  
-  .btn-warning, .btn-outline-light {
-    font-weight: 600;
+
+  .about-section {
+    padding-top: 5rem; /* prevent overlap from hero-section */
+  }
+
+  .right-text {
+    margin: 2rem 1rem;
   }
 
   .container, .about-section {
-    margin-top: 15%;
+    margin-top: 0 !important;
   }
-
-  .right-text{    
-    margin: 7%;
-    text-align: start;
-    width: 100%;
-    h1{        
-        color:rgba(47, 40, 22, 0.981);
-    }
-    .about-text{
-        margin-top: 10%;
-        color:black;
-    }
-    .text-warning{
-        margin-bottom: 5%;
-    }
-    
 }
 
-.hero-about{      
-    background-color: whitesmoke;
-    h6{
-        margin-top: 8%;  
-    }
-    h1{        
+/* practice area css */
+.hero-about {
+  background-color: whitesmoke;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.hero-about h1 {
+  color: rgba(22, 28, 47, 0.981);
+}
+
+.custom-card-height1 {
+  min-height: 350px;
+  max-width: 350px;
+  background-color: rgba(22, 28, 47, 0.981);
+  border: none;
+  color: white;
+  padding: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.custom-card-height1:hover {
+  transform: translateY(-5px);
+}
+
+.custom-card-height1 h4,
+.custom-card-height1 p {
+  color: white;
+  margin-top: 20px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .custom-card-height1 {
+    width: 100%;
+    max-width: 330px; /* Optional: Limit max width */
+    margin: 0 auto; 
+  }
+}
+
+/* attorney css */
+.hero-about2{
+  background-color:  whitesmoke;
+  /* padding-top: 5%; */
+  padding-bottom: 10%; 
+  h1{        
         color:rgba(22, 28, 47, 0.981);
     } 
-    .custom-card-height1 {
-      min-height: 350px; 
-      background-color: rgba(22, 28, 47, 0.981);
-      border: none;
-      h4,p{
-          color: white;
-          margin: 5%;
-      }       
-    }  
-}
-
-.hero-about2{
-  h6{
-    margin-top: 10%;
-  }
   .custom-card-height2 {
-    height: 400px; 
+    height: 450px; 
     background-color: white;
     border: none;
     h5{
@@ -94,18 +220,22 @@
             }
         }
     }  
-  }   
+  }  
+
+  /* blog card */
   .custom-card-height3 {
-    height: 400px; 
+    min-height: 350px;
+    max-width: 350px;
+    padding: 1rem;
+    transition: transform 0.3s ease; 
     background-color: white;
     border: 1px solid rgba(16, 2, 62, 0.981); 
-    margin-bottom: 50%;
     h5{
         color: rgba(22, 28, 47, 0.981);
         margin-top: 3%;
     }  
     p{ 
-      color: blue;
+      color: rgb(243, 176, 69);
     } 
     a{
       text-decoration:none;
@@ -120,7 +250,18 @@
       border-top-right-radius: 5px;
     } 
   } 
+  .custom-card-height3:hover {
+    transform: translateY(-5px);
+  }
+  @media (max-width: 768px) {
+  .custom-card-height3 {
+    width: 100%;
+    max-width: 330px; /* Optional: Limit max width */
+    margin: 0 auto; 
+  }
+}  
 }
+
 
 .banner-image, .banner-image2 {
     height: 50vh;
@@ -130,8 +271,11 @@
     position: relative;
   }
 
+.contact-container{
+  padding-top: 3%;
+}
 .attorney-form{
-  margin-top: 13%;
+  padding: 5%;
   p{
     color: black;
   }
@@ -163,10 +307,11 @@
   border-radius: 0;
   padding: 1rem;
 }
+
 .btn-custom {
   margin-top: 5%;
   margin-bottom: 10%;
-  background-color: #c49b63;
+  background-color: #f5c87a;
   color: white;
   padding: 0.8rem 1.5rem;
   border: none;
@@ -177,11 +322,12 @@
 
 
 .footer {
+  justify-content: center;
   padding: 5%;
   background-color: #0b0f2e;
   color: #fff;
   font-family: 'Segoe UI', sans-serif;
-  height: 400px;
+  min-height: 400px;
 }
 .footer a {
   color: #ccc;
@@ -214,9 +360,7 @@
   font-size: 14px;
   color: #aaa;
 }
-.content{
-  margin-left: 5%;
-} 
+ 
 .footer span{
   color: #f5c87a;
 }

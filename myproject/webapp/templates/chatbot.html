@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/chatbot.css' %}">
+    <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/50/ffffff/scales.png">
+
+</head>
+<body>
+    <!-- Chatbot Widget -->
+    <div id="chatbot-widget">
+        <div id="chat-toggle" onclick="toggleChat()">
+            <div class="chat-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 2H4C2.9 2 2 2.9 2 4V16C2 17.1 2.9 18 4 18H6L10 22L14 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z" fill="currentColor"/>
+                    <circle cx="8" cy="9" r="1" fill="white"/>
+                    <circle cx="12" cy="9" r="1" fill="white"/>
+                    <circle cx="16" cy="9" r="1" fill="white"/>
+                </svg>
+            </div>
+            <span class="chat-text"></span>
+            <div class="notification-badge" id="notification-badge">1</div>
+        </div>
+
+        <div id="chatbox" class="chatbox-hidden">
+            <div class="chat-header">
+                <div class="chat-avatar">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="16" cy="16" r="16" fill="#4F46E5"/>
+                        <path d="M16 8C13.79 8 12 9.79 12 12S13.79 16 16 16 20 14.21 20 12 18.21 8 16 8ZM16 20C12.67 20 10 21.34 10 23V24H22V23C22 21.34 19.33 20 16 20Z" fill="white"/>
+                    </svg>
+                </div>
+                <div class="chat-info">
+                    <h3>Support Assistant</h3>
+                    <span class="status">Online</span>
+                </div>
+                <button class="close-btn" onclick="toggleChat()">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div id="chat-messages" class="chat-messages">
+                <div class="message bot-message">
+                    <div class="message-avatar">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="10" cy="10" r="10" fill="#4F46E5"/>
+                            <path d="M10 5C8.34 5 7 6.34 7 8S8.34 11 10 11 13 9.66 13 8 11.66 5 10 5ZM10 13C7.67 13 6 14.34 6 16V17H14V16C14 14.34 12.33 13 10 13Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="message-content">
+                        <p>Hello! I'm here to help you book an appointment.</p>
+                        {% comment %} <span class="message-time">Just now</span> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-input-container">
+                <input type="text" id="chat-input" placeholder="Type your message..." onkeydown="handleEnter(event)">
+                <button id="send-btn" onclick="sendMessage()">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 10L18 2L12 10L18 18L2 10Z" fill="currentColor"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="typing-indicator" id="typing-indicator">
+                <div class="typing-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <span class="typing-text">Assistant is typing...</span>
+            </div>
+        </div>
+    </div>
+
+    <script src={% static "js/chatbot.js" %}></script>
+</body>
+</html>
