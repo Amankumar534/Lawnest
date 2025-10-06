@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from .models import Attorney,News
-from .agent import ChatbotAgent
+from .models import Attorney
+# from .agent import ChatbotAgent
 import json, os
-from django.views.decorators.csrf import csrf_exempt
+# from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 import requests
 
@@ -27,22 +27,22 @@ def home(request):
     return render(request, 'home.html', {'attorney': attorney, 'news': news_list})
 
 
-@csrf_exempt
-def chatbot_agent(request):    
-    if request.method == 'POST':
-        try:            
-            data = json.loads(request.body)
-            user_input = data['curr_input']
-            thread_id = data['thread_id'] if 'thread_id' in data else None   
+# @csrf_exempt
+# def chatbot_agent(request):    
+#     if request.method == 'POST':
+#         try:            
+#             data = json.loads(request.body)
+#             user_input = data['curr_input']
+#             thread_id = data['thread_id'] if 'thread_id' in data else None   
 
-            agent_graph = ChatbotAgent()  
-            print("+++++++++++=====")         
-            result = agent_graph.run_query(thread_id, user_input)
-            print("result", result)
+#             agent_graph = ChatbotAgent()  
+#             print("+++++++++++=====")         
+#             result = agent_graph.run_query(thread_id, user_input)
+#             print("result", result)
 
-            return JsonResponse(result, safe=False)
-        except Exception as e:
-            return JsonResponse({'error': str(e)}, status=404)
+#             return JsonResponse(result, safe=False)
+#         except Exception as e:
+#             return JsonResponse({'error': str(e)}, status=404)
         
 
 def news(request):
