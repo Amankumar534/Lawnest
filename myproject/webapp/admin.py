@@ -1,7 +1,6 @@
 from django.contrib import admin
 
-from .models import Attorney,News
+from .models import Attorney
 
 # Register your models here.
 admin.site.register(Attorney)
-admin.site.register(News)

@@ -13,12 +13,3 @@ class Attorney(models.Model):
 
     def __str__(self):
         return self.name
-    
-class News(models.Model):
-    title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='images/news/')
-    link = models.URLField(max_length=200, blank=True, null=True)
-    date = models.DateField(auto_now_add=True)
-
-    def __str__(self):
-        return self.title
