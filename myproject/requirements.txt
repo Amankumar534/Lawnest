@@ -23,3 +23,5 @@ oauthlib==3.2.2
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
 gunicorn
+pytz
+whitenoise==6.11.0
