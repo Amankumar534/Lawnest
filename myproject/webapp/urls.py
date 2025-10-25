@@ -5,9 +5,7 @@ from .views import *
 
 urlpatterns = [
     path('', home, name='home'),
-    # path('api/chat/', chatbot_agent, name='agent-graph'),
     path('api/news/', news, name='news'),
-
     # path('chatbot-response', chatbot_response, name='chatbot_response'),
 ] 
 
