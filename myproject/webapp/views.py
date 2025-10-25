@@ -7,22 +7,22 @@ import requests, os
 @csrf_exempt
 def home(request):
     attorney = Attorney.objects.all()
-    MEDIA_API_KEY=os.getenv("MEDIA_API_KEY")
-    news_url = f"https://api.mediastack.com/v1/news?access_key={MEDIA_API_KEY}&categories=general&countries=in"
-    response = requests.get(news_url)
-    news_list = []
-    if response.status_code == 200:
-        data = response.json()  
-        articles = data.get('data', [])      
-        for article in articles:
-            news_list.append({
-                "title": article.get("title"),
-                "date": article.get("published_at"),
-                "image": article.get("image"),
-                "link": article.get("url"),
-            })
-        news_list = news_list[:4]
-    return render(request, 'home.html', {'attorney': attorney, 'news': news_list})
+    # MEDIA_API_KEY=os.getenv("MEDIA_API_KEY")
+    # news_url = f"https://api.mediastack.com/v1/news?access_key={MEDIA_API_KEY}&categories=general&countries=in"
+    # response = requests.get(news_url)
+    # news_list = []
+    # if response.status_code == 200:
+    #     data = response.json()  
+    #     articles = data.get('data', [])      
+    #     for article in articles:
+    #         news_list.append({
+    #             "title": article.get("title"),
+    #             "date": article.get("published_at"),
+    #             "image": article.get("image"),
+    #             "link": article.get("url"),
+    #         })
+    #     news_list = news_list[:4]
+    return render(request, 'home.html', {'attorney': attorney})
 
 
 # @csrf_exempt
@@ -42,21 +42,21 @@ def home(request):
 #         except Exception as e:
 #             return JsonResponse({'error': str(e)}, status=404)
         
-@csrf_exempt
-def news(request):
-    MEDIA_API_KEY=os.getenv("MEDIA_API_KEY")
-    news_url = f"https://api.mediastack.com/v1/news?access_key={MEDIA_API_KEY}&categories=general&countries=in"
-    response = requests.get(news_url)
-    news_list = []
-    if response.status_code == 200:
-        data = response.json()  
-        articles = data.get('data', [])      
-        for article in articles:
-            news_list.append({
-                "title": article.get("title"),
-                "date": article.get("published_at"),
-                "image": article.get("image"),
-                "link": article.get("url"),
-            })
-            news_list = news_list[:24]
-    return render(request, 'news.html', {'news': news_list})
+# @csrf_exempt
+# def news(request):
+#     MEDIA_API_KEY=os.getenv("MEDIA_API_KEY")
+#     news_url = f"https://api.mediastack.com/v1/news?access_key={MEDIA_API_KEY}&categories=general&countries=in"
+#     response = requests.get(news_url)
+#     news_list = []
+#     if response.status_code == 200:
+#         data = response.json()  
+#         articles = data.get('data', [])      
+#         for article in articles:
+#             news_list.append({
+#                 "title": article.get("title"),
+#                 "date": article.get("published_at"),
+#                 "image": article.get("image"),
+#                 "link": article.get("url"),
+#             })
+#             news_list = news_list[:24]
+#     return render(request, 'news.html', {'news': news_list})

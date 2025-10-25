@@ -5,7 +5,7 @@ from .views import *
 
 urlpatterns = [
     path('', home, name='home'),
-    path('api/news/', news, name='news'),
+    # path('api/news/', news, name='news'),
     # path('chatbot-response', chatbot_response, name='chatbot_response'),
 ] 
 
