@@ -1,12 +1,10 @@
 from django.shortcuts import render
 from .models import Attorney
-# from .agent import ChatbotAgent
-import json, os
-# from django.views.decorators.csrf import csrf_exempt
-from django.http import JsonResponse
-import requests
+from django.views.decorators.csrf import csrf_exempt
+import requests, os
 
 # Create your views here.
+@csrf_exempt
 def home(request):
     attorney = Attorney.objects.all()
     MEDIA_API_KEY=os.getenv("MEDIA_API_KEY")
@@ -44,7 +42,7 @@ def home(request):
 #         except Exception as e:
 #             return JsonResponse({'error': str(e)}, status=404)
         
-
+@csrf_exempt
 def news(request):
     MEDIA_API_KEY=os.getenv("MEDIA_API_KEY")
     news_url = f"https://api.mediastack.com/v1/news?access_key={MEDIA_API_KEY}&categories=general&countries=in"
